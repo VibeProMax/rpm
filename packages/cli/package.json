@@ -1,0 +1,31 @@
+{
+  "name": "@rpm/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": {
+    "rpm": "./bin/rpm.js"
+  },
+  "files": [
+    "bin/**/*",
+    "src/**/*",
+    "../web/dist/**/*"
+  ],
+  "scripts": {
+    "prepublish": "bun run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "open": "^10.1.0",
+    "@rpm/server": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.13.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

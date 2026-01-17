@@ -1,0 +1,23 @@
+{
+  "name": "rpm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run scripts/build-cli.ts",
+    "build:web": "bun run --filter ./packages/web build",
+    "setup": "bun run build && bun link --cwd packages/cli",
+    "teardown": "bun unlink --cwd packages/cli",
+    "dev:web": "bun run --filter ./packages/web dev",
+    "dev:server": "bun run --filter ./packages/server dev",
+    "rpm": "bun run packages/cli/src/index.ts",
+    "test:github": "bun run scripts/test-github.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  }
+}
